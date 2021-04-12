@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Content/glyphicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Registration</title>
+</head>
+<style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        /* font-family: personal services; */
+        /* font-family: sans-serif; */
+        font-family: satri angthong;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    .boxcen{
+        width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .backg-image {
+        background-image: url("bg2.jpg");
+        filter: blur(8px);
+        -webkit-filter: blur(8px); 
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .backg-image2 {
+        /* background-color:aliceblue; */
+        background-image: url('people2.jpg');
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 0px;
+    }
+    button {
+        background-color: #157ec4;
+        color: white;
+        border-radius: 25px;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    .button:hover {
+        opacity: 0.8;
+    }
+    .withbox {
+        padding: 10px;
+    }
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+    a {
+        color: dodgerblue;
+    }
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    .before{content:"\e085";}
+</style>
+
+<body>
+    <div class="backg-image" ></div> 
+        <div class="container">
+            <div class=" boxcen">
+            <div class="row">
+                <!-- boxleft -->
+                <div class="col-xl-4 " style="padding:0px">
+                    <div class="backg-image2"></div>
+                </div>
+                <!-- end boxleft -->
+                <!-- boxright -->
+                <div class="col-xl-8 bg-white ">
+                    <!-- row 1 -->
+                    <div class="row" style="padding-top: 15px;">
+                        <div class="col-6 bg-white">
+                            <label style="font-size: 30px;">Registration</label>
+                            <hr>
+                        </div>
+                        <ul class="nav nav-pills bt-enth" role="tablist" style="padding-left:25%;">
+                            <li class="nav-item ">
+                                <a class="nav-link active" data-togle="pill" href="#">En</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" data-togle="pill" href="#">Th</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- row 2 -->
+                    <div class="row">
+                        <div class="col-6 form-group ">
+                            <label for="username"><b>Full Name</b></label>
+                            <input type="text" placeholder="Please enter your" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="col-6 form-group">
+                            <p for="sel1"><b>Position you are applying for</b> <span class="glyphicon glyphicon-envelope"></span></p>
+                            <select class="form-control" id="sel1" name="sel1" placeholder="-Please selesct-">
+                                <option>Programmer</option>
+                                <option>System Analyst</option>
+                                <option>IT Support</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- row 3 -->
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="temail"><b>Email</b></label>
+                            <input type="email" placeholder="Email" class="form-control" id="temail" name="temail" required>
+                        </div>
+                        <div class="col-6 form-group">
+                            <div> <label for="phon"><b>Phone number</b></label> </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                <div class="input-group-prepend">
+                                    <img src="chaina.png" class="mx-auto d-block" alt="Cinque Terre" width="20px" height="15px">
+                                </div>
+                                    </span>
+                                </div>
+                                    <input type="text" placeholder="Phone number" class="form-control" id="phon" name="phon"required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row 4 -->
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="nameCountry"><b>Country</b></label>
+                            <input type="text" placeholder="Please enter your" class="form-control" id="nameCountry" name="nameCountry" required>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="nCity"><b>City</b></label>
+                            <input type="text" placeholder="Please enter your" class="form-control" id="nCity" name="nCity" required>
+                        </div>
+                    </div>
+                    <!-- row 5 -->
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="pwd"><b>Password</b></label>
+                            <input type="password" placeholder="Please enter your" class="form-control" id="pwd" name="pwd" required>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="conpwd"><b>Confirm password</b></label>
+                            <input type="password" placeholder=" Please enter your" class="form-control" id="conpwd" name="conpwd" required>
+                        </div>
+                    </div>
+                    <!-- gender -->
+                    <div>
+                        <label><b>Gender</b></label><br>
+                        <div class="container" style="width: ;">
+                            <input type="radio" class="form-group" id="male" name="gender" value="Male" >
+                            <label for="male">Male</label>
+
+                            <input type="radio" class="form-group" id="female" name="gender" value="Female">
+                            <label for="female">Female</label>
+
+                            <input type="radio" class="form-group" id="other" name="gender" value="Other">
+                            <label for="other">Other</label>
+
+                            <input type="radio" class="form-group" id="prefer" name="gender" value="Prefer not to say">
+                            <label for="prefer">Prefer not to say</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit">Next steep</button>
+                    </div>
+
+                    <div class="container signin">
+                        <p>Already have an account? <a href="#">Sign in</a>.</p>
+                    </div>
+                </div>
+                <!-- end boxright -->
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+        console.log("full name: " + $("#username").val());
+        console.log("Position you are applying for: " + $("#sel1").val());
+        console.log("Email: " + $("#temail").val());
+        console.log("Phon number: " + $("#phon").val());
+        console.log("Country: " + $("#nameCountry").val());
+        console.log("City: " + $("#nCity").val());
+        console.log("Password: " + $("#pwd").val());
+
+        var selValue = $("input[type='radio']:checked").val();
+        console.log("Gender: " + (selValue))
+        });
+    });
+</script>
+
+</body>
+
+</html>

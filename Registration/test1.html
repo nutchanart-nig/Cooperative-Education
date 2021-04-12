@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/w3.css">
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .backg-image {
+        background-image: url("bg.jpg");
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .boxcen{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .boxcenreg{
+        /* position: absolute; */
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+    }
+    .widthboxleft{
+        width: 800px;
+        height: 500px ;
+    }
+    .widthbox{
+        width: 800px;
+        height: 600px ;
+    }
+    .widthbox2{
+        width: 533px;
+        height: 145px ;
+    }
+    .backg-image2 {
+        background-image: url("photo.jpg");
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .buttonnext{
+        border-radius: 30px;
+        height: 100%;
+    }
+    .buttonenth{
+        float: right; width: 120px
+    }
+</style>
+<body>
+    <!-- bg -->
+    <div class="backg-image"></div>
+    <!-- eng ng -->
+    <div class="register-form mt-3 mb-3">
+        <div class="container">
+            <div class=" boxcen">
+                <div class="row">
+                    <!-- boxภาพ -->
+                    <div class="col-md-4 ">
+                        <h1 class="pt-3 backg-image2 "></h1>
+                    </div>
+                    <!-- end boxภาพ -->
+                    <!-- boxขวา -->
+                    <div class="col-md-8 ">
+                        <div class="row widthboxleft">
+                            <div class="col-md-4 bg-white">
+                                <f
+                                orm action="/action_page.php">
+                                    <h2><b>Registration</b></h2>
+                                    <div class="form-group">
+                                        <label for="usr"><b>Full Name</b></label>
+                                        <input type="text" placeholder = "Please enter your" class="form-control" id="usr" name="username">
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="temail"><b>Email</b></label>
+                                        <input type="email" placeholder = "email" class="form-control" id="temail" name="temail">
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="tcountry"><b>Country</b></label>
+                                        <input type="text" placeholder = "Please enter your" class="form-control" id="tcountry" name="tcountry">
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="tpassword"><b>Password</b></label>
+                                        <input type="password" placeholder = "Please enter your" class="form-control" id="tpassword" name="tpassword">
+                                    </div>
+                                </form>
+                                
+                            </div>
+                            <!-- boxขวาสุด -->
+                            <div class="col-md-4 bg-white">
+                                <div class="container buttonenth">
+                                    <a class="btn btn-primary btn-xs ">en</a>
+                                    <a class="btn btn-default btn-xs ">th</a>
+                                    <br>
+                                </div>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="sel1"><b>Position you are applying for</b></label>
+                                        <select class="form-control" id="sel1" name="sellist1" placeholder = "-Please selesct-">
+                                          <option>Programmer</option>
+                                          <option>System Analyst</option>
+                                          <option>IT Support</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="pwd"><b>Phone number</b></label>
+                                        <input type="number" placeholder = "Phone number" class="form-control" id="pwd" name="password">
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="pwd"><b>City</b></label>
+                                        <input type="text" placeholder = "Please enter your" class="form-control" id="pwd" name="password">
+                                    </div>
+                                </form>
+                                <form action="/action_page.php">
+                                    <div class="form-group">
+                                        <label for="pwd"><b>Confirm password</b></label>
+                                        <input type="password" placeholder = "Please enter your" class="form-control" id="pwd" name="password">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="bg-white widthbox2" >
+                                <form action="/action_page.php">
+                                    <p><b>Gender</b></p>
+                                    <input type="radio" id="male" name="gender" value="Male">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="Female">
+                                    <label for="female">Female</label>
+                                    <input type="radio" id="other" name="gender" value="Other">
+                                    <label for="other">Other</label>
+                                    <input type="radio" id="other" name="gender" value="Prefer not to say">
+                                    <label for="other">Prefer not to say</label>
+                                </form>
+                                <div class="container buttonnext w3-container">
+                                    <button type="button" class="btn btn-primary btn-block">Next Step</button>
+                                    <label>Already have an account?</label>
+                                    <button type="button" class="btn btn-link">Sing in</button>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    <!-- end boxขวา  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    console.log("Test script");
+</script>
+</html>
