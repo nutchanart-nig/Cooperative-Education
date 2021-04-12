@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Portfilio</title>
+</head>
+<style>
+  * {box-sizing: border-box}
+  body {font-family: supermarket, sans-serif; margin:0}
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.a:hover:not(.active) {
+  background-color: #111;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .5} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .5} 
+  to {opacity: 1}
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left :500px; top:-500px;}
+  50%  {background-color:blue; left:500px; top:500px;}
+  75%  {background-color:green; left:0px; top:0px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+.ex {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 10s;
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.active {
+  background-color: #4CAF50;
+}
+.textbar{
+  font-size: 20px;
+}
+.bg-text{
+  background-image: url("bgtext.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px); 
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+@keyframes shake{
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+label:hover{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+button {
+  background-color: #157ec4;
+  color: white;
+  border-radius: 25px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.inputtypetext {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.inputemail {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.textclear{
+  font-size: 30px;
+}
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+.form-control i{
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  visibility: hidden;
+}
+.form-control small{
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+</style>
+
+<body id="myPage">
+  <!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close<i class="fa fa-remove"></i></a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+</nav>
+
+<header class="w3-theme w3-padding" id="myHeader">
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align textbar">
+   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+   <a href="#" class="w3-bar-item w3-button w3-teal w3-hover-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+   <a href="#about_me" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">About me</a>
+   <a href="#Contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+   <a href="#other" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Other</a>
+   <a href="#location" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Location</a>
+   <a href="#Contact_Us" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
+  </div>
+</div>
+<!-- end bar -->
+<!-- row photo -->
+<div class="row">
+  <div class="slideshow-container">
+    <div class="slideshow-container">
+      <div class="mySlides">
+          <img src="nig1.jpg" style="width:100%" alt="Me">
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="nig2.jpg" style="width:100%" alt="Me">
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="nig3.jpg" style="width:100%" alt="Me">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="nig4.jpg" style="width:100%" alt="Me">
+        </div>
+        
+        <a class="prev w3-animate-left	" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next w3-animate-right" onclick="plusSlides(1)">&#10095;</a>
+  
+      </div>
+      <div class="w3-center">
+          <label class="w3-xxxlarge w3-animate-bottom ">NNNNN </label>
+          <label class="w3-xxxlarge w3-spin"> iiiiiiii </label> 
+          <label class="w3-xxxlarge w3-animate-shake-infinite" >GGGGGGG</label>
+      </div>     
+  </div>
+  </header>
+</div>
+<!-- end photo -->
+
+<!-- row about me -->
+<div class="w3-row w3-container" style="margin:50px 0"id="about_me">
+  <div class="w3-half w3-container">
+    <div class="w3-topbar w3-border-amber" style="font-size: 25px;"><br>
+      <h2><b>About me</b></h2><br>
+      <p><b>Name :</b> Nutchanart Ma-autsa</p>
+      <p><b>Nickname :</b> Nig </p>
+      <p><b>Age :</b> 23 </p>
+      <p><b>Undergraduate Thesis : </b>  Development of English Alphabets Finger Spelling Practicing System with Computer Vision.</p>
+      <p></p>
+    </div>
+  </div>
+  <div class="w3-half w3-container" id = "Contect">
+    <div class="w3-topbar w3-border-amber" style="font-size: 25px;"><br>
+      <h2><b>Contact</b></h2><br>
+      <!-- <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> 58 หมู่ 14 ตำบลห้วยม้า อำเภอเมือง จังหวัดแพร่ 54000</p> -->
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> หอพัก @home ห้อง 2303 เลขที่อยู่ 90/1 ถนน คู้บอน ซอย 10/1 แขวง รามอินทรา เขตคันนายาว กรุงเทพมหานคร 10230</p>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i> nick-nootchanrd@hotmail.co.th</p>
+      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +66931988437</p>
+
+    </div>
+  </div>
+<!-- end row abou me -->
+
+<!-- row contact  -->
+<div class=" w3-container" style="margin:50px 0" id="other">
+  <div class="w3-rest w3-container "><br>
+    <div class="w3-topbar w3-border-red row" style="margin:20px 0px"> <br>
+      <div class="col-6" style="text-align: center;">
+        <img src="skill2.jpg" onclick="document.getElementById('imgone').style.display='block'" alt="Boss" style="width:50%; padding-top:20px;" class="w3-circle w3-hover-opacity" id="img1"> 
+        <p class="w3-container " style="font-size: 40px; text-align-last: 50px;">SKILLS</p>
+        <div id= "imgone" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
+            <!-- <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> -->
+              <div class="w3-modal-content w3-animate-zoom" style="font-size: 30px; " >
+                <header class="w3-container w3-teal">SKILLS</header>
+                <div class="w3-container">
+                  <p><b>PROGRAMING LANGUAGES</b> </p>
+                  <p> JavaScript, Java, Python, Html, CSS, XML, Kotlin</p>
+                  <p><b>TOOL</b></p>
+                  <p> Visual studio code, Android studio, Git, Unity2D ,Microsoft office, Adobe Illustrator: AI, PS</p>
+                  <p><b>OTHER</b></p>
+                  <p> Network, Data mining, IoT </p>
+                </div>
+                <footer class="w3-container w3-teal"> <p></p> </footer>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-6" style="text-align: center;">
+          <img src="ed2.jpg" alt="Boss" style="width:50%; padding-top:20px;" class="w3-circle w3-hover-opacity" id="img3" onclick="document.getElementById('imgthree').style.display='block'">
+          <p class="w3-container"  style="font-size: 40px; left: 30px;">Education</p>
+          <div id="imgthree" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
+              <div class="w3-modal-content w3-animate-zoom" style="font-size: 30px; " >
+                <header class="w3-container w3-teal">Education </header>
+                <div class="w3-container">
+                <p><b>2017</b></p>
+                <p> Computer science at Naresuan University, Phitsanulok, Thailand </p>
+                <p><b>2010</b></p>
+                <p> Secondary education at HuaimaWittayakom, Phrae, Thailand </p>
+                </div>
+                <footer class="w3-container w3-teal">
+                  <p> </p>
+                </footer>
+              </div>
+          </div>
+        </div>
+      </div>
+      <br>
+  </div>
+</div>
+<!-- end con -->
+
+<!-- Image of location/map -->
+<div class="w3-topbar w3-border-white" id="location" >
+  <img src="map.jpg" class="w3-image w3-greyscale-min" style="width:100%;" >
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d1 w3-center " style="padding: 20px;">
+  <h3>Follow Us</h3>
+  <div>
+    <div>
+      <a class="w3-button w3-large w3-teal" href="https://www.facebook.com/nutchanart.nig/" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a class="w3-button w3-large w3-teal" href="https://github.com/nutchanart-nig" title="Github"><i class="fa fa-git"></i></a>
+      <a class="w3-button w3-large w3-teal" href="https://www.instagram.com/giiin_nm/" title="instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+    <footer style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+      <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+      <a class="w3-button w3-theme " href="#myPage" style="margin: 5px;">
+        <span class="w3-xlarge">
+        <i class="fa fa-chevron-circle-up"></i></span>
+      </a>
+    </footer>
+  </div>
+ 
+  <!-- Contact Us -->
+  <div class="w3-row" style="font-size: 25px;">
+    <div class="contact-us w3-container w3-card-4 w3-padding-16 w3-white "  id="Contact_Us">
+      <div >
+        <p style="font-size: 55px; font-family: 'Sofia'" ><b>Contact Us</b></p>
+        <p >Got a question? We'd love to hear from you. Send us a messsage and well repond as soon as possible.</p><br>
+      </div>
+      <form  onsubmit="myFunction()" id="myFrom" > 
+        <div>
+          <p for="namen" style="color: rgb(68, 17, 187);"><b>Name *</b></p>
+          <input type="text" name="namen" id="namen" class="textclear inputtypetext"  required>
+          <div id="shownamen" style="display: none;">
+              <p id="hidname"></p>
+          </div>
+        </div>
+
+        <div>
+          <p for="email" style="color: rgb(68, 17, 187);" ><b>Email *</b></p>
+      
+          <input type="email" name="email" id="email" class="textclear inputemail"  title="Invalid email address "  required>
+          <!-- <input type="email" name="email" id="email" class="textclear inputemail" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address ex. aa@hotmail.com" required> -->
+          <div id="showemail" style="display: none;">
+              <p id="hidemail"></p>
+          </div>
+        </div>
+
+        <div>
+          <p for="mess" style="margin: 0; color: rgb(68, 17, 187);"><b>Message</b></p>
+          <textarea class="textclear textarea" id="mess" name="mess" style="height:120px; padding: 5%;" placeholder="Write for Some thing"  ></textarea>
+          <div id="showmess" style="display: none; ">
+              <p id="hidmess"></p>
+          </div>
+        </div>
+
+        <div>            
+          <button type="submit" class="w3-button w3-right w3-theme" id="btn"  > Send Message</button>
+        <form>
+          <button type="button" class="w3-button w3-right w3-theme" id="btn-back" onclick="myFunctionblack()" style="display: none;" > Back </button>
+        </form>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- end Contact Us -->
+</footer>
+<!--End Footer -->
+
+<script>
+  $(document).ready(function() {
+    $(document).on("submit", function() { 
+      return false;
+    });
+  });
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dot[slideIndex-1].className += " active";
+  }
+// click model
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // hid-none
+  function myFunction() {
+    var x = document.getElementById("namen").value;
+    console.log(x.length)
+    
+    if (x.length > 0) {
+      document.getElementById('namen').style.display = "none";
+      document.getElementById('shownamen').style.display = "revert";
+    }
+    document.getElementById("hidname").innerHTML = x;
+
+    var y = document.getElementById("email").value;
+    console.log(y.length)
+
+    if (y.length > 0) {
+      document.getElementById("email").style.display = "none";
+      document.getElementById("showemail").style.display = "revert";
+    }
+    document.getElementById("hidemail").innerHTML = y;
+
+    var z = document.getElementById("mess").value;
+    console.log(z.length)
+
+    if (z.length > 0) {
+      document.getElementById("mess").style.display = "none";
+      document.getElementById("showmess").style.display = "revert";
+    }
+    document.getElementById("hidmess").innerHTML = z;
+    
+    //button
+    var btnsent = document.getElementById("btn");
+    var btnBack = document.getElementById("btn-back");
+
+    btnBack.style.display = "block";
+    btnsent.style.display = "none"; 
+
+  }
+
+   function myFunctionblack() {
+    var xx = document.getElementById("namen").value;
+    var yy = document.getElementById("email").value;
+    var zz = document.getElementById("mess").value;
+
+    document.getElementById("hidname").style.display = "none";
+    document.getElementById("hidemail").style.display = "none";
+    document.getElementById("hidmess").style.display = "none";
+
+    document.getElementById("namen").style.display = "block";
+    document.getElementById("email").style.display = "block";
+    document.getElementById("mess").style.display = "block";
+
+    document.getElementById("namen").value = xx;
+    document.getElementById("email").value= yy;
+    document.getElementById("mess").value = zz;
+
+    //button
+    var btnBack = document.getElementById("btn-back");
+    var btnsend = document.getElementById("btn");
+
+    btnBack.style.display = "none";
+    btnsend.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
