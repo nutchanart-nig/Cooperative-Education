@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <title>Document</title>
+</head>
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: EDPenSook;
+  }
+  table {
+  /* font-family: sans-serif; */
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 3px 5px #f39898
+  }
+  td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  #myInput {
+    background-position: 10px 10px;
+    /* background-repeat: no-repeat; */
+    /* width: 100%; */
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    box-shadow: 5px 5px rgb(226, 98, 104);
+  }
+  .bgg{
+    background-image: url("bg3.jpg");
+  }
+  .grad1 {
+    background-image: linear-gradient( #ecbf95,#ebc1c9);
+  }
+  h1{
+    text-shadow: 2px 2px 1px rgb(255, 255, 255);
+  }
+</style>
+<body class="grad1">
+  <div class="text-center">
+    <strong >
+      <h1> TABLE </h1>
+    </strong>
+    <div class="search-container">
+      <form>
+        <input type="text" placeholder="Search for name.." name="search" onkeyup="myFunction()" id="myInput">
+      </form>
+    </div>
+  <table class="table table-striped " id="tb" >
+    <thead>
+      <tr class="table-danger" >
+        <th >id</th>
+        <th >name</th>
+        <th >age</th>
+        <th >email</th>
+        <th >tel</th>
+      </tr>
+    </thead>
+    <tbody id="texttb">
+    </tbody>
+  </table>
+  <div>
+    <iframe style="overflow:hidden;border:0;margin:0;padding:0;width:175px;height:80px;" src="http://www.clocktag.com/html5/d171black1.html"></iframe>
+  </div>
+</div>
+<script >
+  function myFunction() {
+    var input = null, filter, table, tr, td, x, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tb");
+    console.log(table)
+    tr = table.getElementsByTagName('tr');
+
+    for (x = 0; x < tr.length; x++) {
+      td = tr[x].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        console.log(txtValue)
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[x].style.display = "";
+        } else {
+          tr[x].style.display = "none";
+        }
+      }
+    }
+  }
+  $(document).ready(function() {
+    $.getJSON("https://5fd73aa19dd0db0017ee8f8e.mockapi.io/api/v1/getData",function (json) {
+      console.log(json)
+      var tr;
+      for (var i = 0; i < json.length; i++) {
+        tr = $('<tr/>');
+        tr.append("<td>" + json[i].id + "</td>");
+        tr.append("<td>" + json[i].name + "</td>");
+        tr.append("<td>" + json[i].age + "</td>");
+        tr.append("<td>" + json[i].email + "</td>");
+        tr.append("<td>" + json[i].tel + "</td>");
+        $('#texttb').append(tr);
+      }
+      // numepage
+      $("#tb").DataTable({
+        "pageLength": 10, 
+        "searching": false,
+        "lengthChange": false
+      });
+      var tmp = {};
+      for (var i = 1; i <= 2; i++) {
+        tmp["object_" + i] = {}
+          for ( var j = 1; j <= 2 ; j++ ){
+            tmp["object_" + i]["sub_object_" + i +'_' + j] = [ 
+            ];
+            tmp["object_" + i]["sub_object_" + i +'_' + j] = [{"id" : "1"  , "name" : "in_arr_1"},{"id" : "2" , "name" : "in_arr_2"}];
+          }
+      }console.log(tmp)
+    });
+  });
+</script>
+</body>
+</html>
